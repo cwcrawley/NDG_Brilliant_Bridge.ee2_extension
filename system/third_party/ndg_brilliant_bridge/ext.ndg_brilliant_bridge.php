@@ -48,7 +48,7 @@ class Ndg_brilliant_bridge_ext {
 			"entry_id" => 0, 
 			"channel_id" => $this->settings["channel_id"], 
 			"title" => $data["title"], 
-			"url_title" => url_title($data["title"], 'dash', TRUE), 
+			"url_title" => $data["url"], // Changed from url_title($data["title"], 'dash', TRUE) to preserve URL syncing between Channel and BR 
 			"entry_date" => date("Y-m-d H:i A"),
 			"new_channel" => $this->settings["channel_id"], 
 			"allow_comments" => "y",
@@ -107,7 +107,7 @@ class Ndg_brilliant_bridge_ext {
 				"entry_id" => $entry_id, 
 				"channel_id" => $this->settings["channel_id"], 
 				"title" => $data["title"], 
-				"url_title" => url_title($data["title"], 'dash', TRUE), 
+				"url_title" => $data["url"], // Changed from url_title($data["title"], 'dash', TRUE) to preserve URL syncing between Channel and BR 
 				"entry_date" => date("Y-m-d H:i A"),
 				"new_channel" => $this->settings["channel_id"],
 				"allow_comments" => "y", 
@@ -121,7 +121,7 @@ class Ndg_brilliant_bridge_ext {
 					
 					$entry_update = array(
 						"title" => $data["title"], 
-						"url_title" => url_title($data["title"], 'dash', TRUE)
+						"url_title" => $data["url"] // Changed from url_title($data["title"], 'dash', TRUE) to preserve URL syncing between Channel and BR
 					); 	
 				
 					$this->EE->db->where('entry_id', $entry_id);
